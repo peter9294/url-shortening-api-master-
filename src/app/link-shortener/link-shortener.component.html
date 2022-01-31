@@ -1,0 +1,29 @@
+<section class="link-shortener">
+  <div class="link-box">
+    <input
+      type="text"
+      placeholder="Shorten a link here..."
+      [(ngModel)]="url"
+      #link="ngModel"
+      #linkBox
+    />
+    <button (click)="getShrtnUrl()">Shorten It!</button>
+    <span #alert class="alert"><i>Please add a link</i></span>
+  </div>
+  <div
+    class="result-box"
+    *ngFor="let elm of shrtnUrl | keyvalue: reverseKeyOrder"
+  >
+    <a href="{{ (elm.value | jsonParse).original }}" target="_blank">{{
+      (elm.value | jsonParse).original
+    }}</a>
+    <span>
+      <a
+        href="{{ 'https://' + (elm.value | jsonParse).result }}"
+        target="_blank"
+        >{{ (elm.value | jsonParse).result }}</a
+      >
+      <button (click)="copyLink(elm.value, $event)">Copy</button>
+    </span>
+  </div>
+</section>

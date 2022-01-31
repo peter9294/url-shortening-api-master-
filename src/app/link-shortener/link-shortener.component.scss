@@ -1,0 +1,143 @@
+@use "./src/color";
+
+.link-shortener {
+  transform: translateY(-5em);
+
+  .link-box {
+    background-image: url("../../assets/images/bg-boost-desktop.svg");
+    background-size: 100% 100%;
+    background-color: color.$dark-violet;
+    width: 100%;
+    height: 10em;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    input {
+      box-sizing: border-box;
+      width: 70%;
+      height: 40%;
+      border-radius: 0.5em;
+      padding: 0 2em;
+      font-size: 1.2em;
+      color: color.$grayish-violet;
+      border: none;
+    }
+    button {
+      width: 15%;
+      height: 40%;
+      border-radius: 0.5em;
+      background-color: color.$cyan;
+      border: none;
+      font-size: 1.2em;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        background-color: rgb(61, 224, 224);
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+    .alert {
+      position: absolute;
+      top: 7.5em;
+      left: 6em;
+      color: red;
+      display: none;
+    }
+  }
+
+  .result-box {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+    padding: 1em 1em;
+    border-radius: 1em;
+    background-color: rgb(255, 255, 255);
+    a {
+      color: color.$very-dark-blue;
+    }
+    span {
+      a {
+        color: color.$cyan;
+      }
+
+      button {
+        margin-left: 1em;
+        color: white;
+        font-weight: 700;
+        background-color: color.$cyan;
+        border: none;
+        border-radius: 0.5em;
+        padding: 1em;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        &:hover {
+          background-color: rgb(61, 224, 224);
+        }
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .link-shortener {
+    .link-box {
+      padding: 1em 0;
+      background-image: url("../../assets/images/bg-boost-mobile.svg");
+      min-width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5em;
+      input {
+        width: 90%;
+        height: 35%;
+        padding: 0 1em;
+      }
+      button {
+        width: 90%;
+        height: 35%;
+      }
+      .alert {
+        position: absolute;
+        top: 5.3em;
+        left: 2.3em;
+        color: red;
+        display: none;
+      }
+    }
+
+    .result-box {
+      flex-direction: column;
+      gap: 1em;
+      a {
+        color: color.$very-dark-blue;
+      }
+      span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        a {
+          color: color.$cyan;
+          width: 100%;
+        }
+
+        button {
+          width: 100%;
+          margin-left: 0em;
+        }
+      }
+    }
+  }
+}
